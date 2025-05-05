@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hivox – Cresce ouvindo</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ÍCONES E MANIFESTO PWA -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#25D366" />
 </head>
 <body>
   <div class="container">
@@ -33,6 +40,16 @@
       <p>&copy; 2025 Hivox. Todos os direitos reservados.</p>
     </footer>
   </div>
+
   <script src="script.js"></script>
+
+  <!-- SERVICE WORKER (PWA) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker registrado'))
+        .catch(err => console.log('Erro no Service Worker:', err));
+    }
+  </script>
 </body>
 </html>
