@@ -1,6 +1,6 @@
+// Formulário para Google Sheet
 document.getElementById('newsletterForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  
   const name = this.name.value;
   const phone = this.phone.value;
 
@@ -12,4 +12,19 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
 
   alert("Obrigado! Receberás novidades em breve.");
   this.reset();
+});
+
+// Popup login automático após 15 segundos
+setTimeout(() => {
+  document.getElementById('loginPopup').classList.remove('hidden');
+}, 15000);
+
+// Fechar popup
+document.getElementById('closePopup').addEventListener('click', () => {
+  document.getElementById('loginPopup').classList.add('hidden');
+});
+
+// Abrir popup pelo botão de perfil
+document.getElementById('perfilBtn').addEventListener('click', () => {
+  document.getElementById('loginPopup').classList.remove('hidden');
 });
