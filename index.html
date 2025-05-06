@@ -7,70 +7,56 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="icon" href="https://img.icons8.com/color/48/000000/headphones.png" />
-    <style>
-      :root {
-        --vh: 100%;
-      }
-      @media screen and (max-width: 768px) {
-        :root {
-          --vh: 100vh;
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="app">
-      <header class="top-bar">
-        <div class="user-info">
-          <img src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="Perfil" class="avatar" />
-          <span class="user-name">Olá, João!</span>
+      <!-- Topo: perfil e notificações -->
+      <div class="top-bar">
+        <div class="profile">
+          <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="Perfil" />
+          <span>Olá, Hivox</span>
         </div>
         <div class="notifications">
-          <img src="https://img.icons8.com/ios-filled/24/appointment-reminders.png" alt="Notificações" />
+          <img src="https://img.icons8.com/ios-filled/30/appointment-reminders.png" alt="Notificações" />
         </div>
-      </header>
-
-      <div class="search-bar">
-        <input type="text" placeholder="Pesquisar livros, temas, autores..." />
       </div>
 
-      <section class="banner">
-        <p>Ouça as novidades da semana!</p>
-      </section>
+      <!-- Barra de pesquisa -->
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquisar livros..." />
+      </div>
 
-      <section class="book-grid">
-        <div class="book-card">
-          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 1" />
-          <div class="book-info">
-            <span>Essencialismo</span>
-            <div class="book-meta">
-              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
-              <button>Ouvir agora</button>
-            </div>
-          </div>
-        </div>
-        <div class="book-card">
-          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 2" />
-          <div class="book-info">
-            <span>O Poder do Hábito</span>
-            <div class="book-meta">
-              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
-              <button>Ouvir agora</button>
-            </div>
-          </div>
-        </div>
-        <div class="book-card">
-          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 3" />
-          <div class="book-info">
-            <span>Rápido e Devagar</span>
-            <div class="book-meta">
-              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
-              <button>Ouvir agora</button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- Banner tipo TV -->
+      <div class="banner-tv">
+        <img src="https://img.icons8.com/clouds/500/audio-wave--v2.png" alt="Destaques" />
+      </div>
 
+      <!-- Carrossel com livros -->
+      <div class="books-carousel">
+        <div class="book">
+          <img src="https://img.icons8.com/fluency/96/open-book--v2.png" alt="Livro 1" />
+          <div class="audio-icon">
+            <img src="https://img.icons8.com/ios-glyphs/24/headphones.png" alt="Áudio" />
+          </div>
+          <p class="tag">Ouvir agora</p>
+        </div>
+        <div class="book">
+          <img src="https://img.icons8.com/fluency/96/book-shelf.png" alt="Livro 2" />
+          <div class="audio-icon">
+            <img src="https://img.icons8.com/ios-glyphs/24/headphones.png" alt="Áudio" />
+          </div>
+          <p class="tag">Explorar</p>
+        </div>
+        <div class="book">
+          <img src="https://img.icons8.com/fluency/96/ebook.png" alt="Livro 3" />
+          <div class="audio-icon">
+            <img src="https://img.icons8.com/ios-glyphs/24/headphones.png" alt="Áudio" />
+          </div>
+          <p class="tag">Detalhes</p>
+        </div>
+      </div>
+
+      <!-- Barra inferior -->
       <nav class="bottom-nav">
         <a href="#" class="active">
           <img src="https://img.icons8.com/ios-filled/50/00b386/home.png" alt="Início" />
@@ -90,20 +76,5 @@
         </a>
       </nav>
     </div>
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js')
-          .then(() => console.log('SW registrado com sucesso'))
-          .catch(err => console.log('Falha ao registrar SW:', err));
-      }
-
-      function setVH() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
-      }
-      window.addEventListener('resize', setVH);
-      setVH();
-    </script>
   </body>
 </html>
