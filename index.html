@@ -11,24 +11,66 @@
       :root {
         --vh: 100%;
       }
-
       @media screen and (max-width: 768px) {
         :root {
           --vh: 100vh;
         }
       }
-
-      .app {
-        height: calc(var(--vh) - 0px);
-      }
     </style>
   </head>
   <body>
     <div class="app">
-      <div class="content">
-        <h1>Bem-vindo à Hivox!</h1>
-        <p>Escolhe um menu abaixo para começar a ouvir.</p>
+      <header class="top-bar">
+        <div class="user-info">
+          <img src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="Perfil" class="avatar" />
+          <span class="user-name">Olá, João!</span>
+        </div>
+        <div class="notifications">
+          <img src="https://img.icons8.com/ios-filled/24/appointment-reminders.png" alt="Notificações" />
+        </div>
+      </header>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquisar livros, temas, autores..." />
       </div>
+
+      <section class="banner">
+        <p>Ouça as novidades da semana!</p>
+      </section>
+
+      <section class="book-grid">
+        <div class="book-card">
+          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 1" />
+          <div class="book-info">
+            <span>Essencialismo</span>
+            <div class="book-meta">
+              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
+              <button>Ouvir agora</button>
+            </div>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 2" />
+          <div class="book-info">
+            <span>O Poder do Hábito</span>
+            <div class="book-meta">
+              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
+              <button>Ouvir agora</button>
+            </div>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://img.icons8.com/ios/100/book--v1.png" alt="Livro 3" />
+          <div class="book-info">
+            <span>Rápido e Devagar</span>
+            <div class="book-meta">
+              <img src="https://img.icons8.com/ios-filled/20/headphones.png" alt="Áudio" />
+              <button>Ouvir agora</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <nav class="bottom-nav">
         <a href="#" class="active">
           <img src="https://img.icons8.com/ios-filled/50/00b386/home.png" alt="Início" />
@@ -56,7 +98,6 @@
           .catch(err => console.log('Falha ao registrar SW:', err));
       }
 
-      // Corrige altura da tela em dispositivos móveis (evita barra de endereço)
       function setVH() {
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
