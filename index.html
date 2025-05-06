@@ -1,58 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hivox</title>
-  
-  <!-- Manifesto PWA -->
-  <link rel="manifest" href="manifest.json">
-  
-  <!-- Novo favicon em PNG na raiz -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  
-  <meta name="theme-color" content="#25D366">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Hivox</h1>
-      <p class="slogan">Cresce ouvindo</p>
-    </header>
-
-    <div class="buttons">
-      <a href="https://wa.me/258841251204" class="btn whatsapp">Falar via WhatsApp</a>
-      <button class="btn" id="perfilBtn">Entrar / Perfil</button>
-    </div>
-
-    <form id="newsletterForm">
-      <h3>Receba novidades</h3>
-      <input type="text" name="name" placeholder="Seu nome" required>
-      <input type="tel" name="phone" placeholder="WhatsApp" required>
-      <button type="submit">Cadastrar</button>
-    </form>
-  </div>
-
-  <div class="popup hidden" id="loginPopup">
-    <div class="popup-content">
-      <span class="close" id="closePopup">&times;</span>
-      <h3>Entre com seu WhatsApp</h3>
-      <a href="https://wa.me/258841251204" class="btn whatsapp">Entrar com WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="bottom-nav">
-    <button>Início</button>
-    <button>Catálogo</button>
-    <button>Perfil</button>
-  </div>
-
-  <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hivox</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/headphones.png" />
+  </head>
+  <body>
+    <div id="root">Carregando...</div>
+    <script type="module" src="./src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+      }
+    </script>
+  </body>
 </html>
