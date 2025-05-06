@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hivox – Cresce ouvindo</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- ÍCONES E MANIFESTO PWA -->
-  <link rel="icon" href="public/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="192x192" href="public/icon-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="public/icon-512.png">
-  <link rel="manifest" href="public/manifest.json">
-  <meta name="theme-color" content="#25D366" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hivox</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <meta name="theme-color" content="#25D366">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -20,35 +16,37 @@
       <p class="slogan">Cresce ouvindo</p>
     </header>
 
-    <main>
-      <p>Descobre audiolivros incríveis em português e começa a crescer enquanto ouves.</p>
-      
-      <div class="buttons">
-        <a href="#" class="btn">Ouvir amostras</a>
-        <a href="https://wa.me/258841251204" class="btn whatsapp" target="_blank">Falar no WhatsApp</a>
-      </div>
+    <div class="buttons">
+      <a href="https://wa.me/258841251204" class="btn whatsapp">Falar via WhatsApp</a>
+      <button class="btn" id="perfilBtn">Entrar / Perfil</button>
+    </div>
 
-      <form id="newsletterForm">
-        <h3>Recebe novidades por WhatsApp</h3>
-        <input type="text" placeholder="Teu nome" name="name" required />
-        <input type="tel" placeholder="Teu WhatsApp" name="phone" required />
-        <button type="submit">Quero receber</button>
-      </form>
-    </main>
+    <form id="newsletterForm">
+      <h3>Receba novidades</h3>
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="tel" name="phone" placeholder="WhatsApp" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
 
-    <footer>
-      <p>&copy; 2025 Hivox. Todos os direitos reservados.</p>
-    </footer>
+  <div class="popup hidden" id="loginPopup">
+    <div class="popup-content">
+      <span class="close" id="closePopup">&times;</span>
+      <h3>Entre com seu WhatsApp</h3>
+      <a href="https://wa.me/258841251204" class="btn whatsapp">Entrar com WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button>Início</button>
+    <button>Catálogo</button>
+    <button>Perfil</button>
   </div>
 
   <script src="script.js"></script>
-
-  <!-- SERVICE WORKER (PWA) -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('public/sw.js')
-        .then(reg => console.log('Service Worker registrado'))
-        .catch(err => console.log('Erro no Service Worker:', err));
+      navigator.serviceWorker.register('sw.js');
     }
   </script>
 </body>
