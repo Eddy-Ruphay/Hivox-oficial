@@ -7,6 +7,21 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="icon" href="https://img.icons8.com/color/48/000000/headphones.png" />
+    <style>
+      :root {
+        --vh: 100%;
+      }
+
+      @media screen and (max-width: 768px) {
+        :root {
+          --vh: 100vh;
+        }
+      }
+
+      .app {
+        height: calc(var(--vh) - 0px);
+      }
+    </style>
   </head>
   <body>
     <div class="app">
@@ -40,6 +55,14 @@
           .then(() => console.log('SW registrado com sucesso'))
           .catch(err => console.log('Falha ao registrar SW:', err));
       }
+
+      // Corrige altura da tela em dispositivos móveis (evita barra de endereço)
+      function setVH() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+      }
+      window.addEventListener('resize', setVH);
+      setVH();
     </script>
   </body>
 </html>
