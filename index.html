@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hivox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- Topo -->
+  <div class="top-bar">
+    <div class="profile">
+      <img src="https://img.icons8.com/color/96/000000/user.png" alt="Perfil">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar audiolivro...">
+    </div>
+    <div class="actions">
+      <button><img src="https://img.icons8.com/material-rounded/24/000000/appointment-reminders--v1.png" alt="Notificações"></button>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-tv">
+    <img src="https://via.placeholder.com/600x300.png?text=Banner+Hivox" alt="Banner TV">
+  </div>
+
+  <!-- Livros -->
+  <div class="books-grid">
+    <div class="book">
+      <img src="https://img.icons8.com/ios/100/000000/open-book--v2.png" alt="Livro 1">
+      <div class="tag">Histórias</div>
+    </div>
+    <div class="book">
+      <img src="https://img.icons8.com/ios/100/000000/open-book--v2.png" alt="Livro 2">
+      <div class="tag">Romance</div>
+    </div>
+    <div class="book">
+      <img src="https://img.icons8.com/ios/100/000000/open-book--v2.png" alt="Livro 3">
+      <div class="tag">Culinária</div>
+    </div>
+  </div>
+
+  <!-- Barra inferior -->
+  <nav class="bottom-nav">
+    <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Início"><span>Início</span></a>
+    <a href="#"><img src="https://img.icons8.com/fluency/48/000000/open-box.png" alt="Catálogo"><span>Catálogo</span></a>
+    <a href="#" id="profileButton"><img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Perfil"><span>Perfil</span></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="Configurações"><span>Configurações</span></a>
+  </nav>
+</div>
+
+<!-- Modal de Login -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <p>Digite seu número de WhatsApp:</p>
+    <input type="text" id="phoneNumber" placeholder="Ex: +258 84 000 0000">
+    <button class="login-btn">Entrar</button>
+  </div>
+</div>
+
+<script>
+  // Modal Login
+  const modal = document.getElementById("loginModal");
+  const btn = document.getElementById("profileButton");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
