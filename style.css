@@ -166,7 +166,44 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+/* ----------------- Tela de Catálogo ----------------- */
+.catalog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 900;
+}
 
+.catalog-container {
+  background-color: #ffffff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 16px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.catalog-container.active {
+  transform: translateY(0);
+}
+
+.catalog-item {
+  background: #f0f0f0;
+  border-radius: 12px;
+  height: 120px;
+}
 .close {
   color: #aaa;
   float: right;
