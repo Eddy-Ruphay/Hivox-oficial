@@ -1,71 +1,152 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hivox</title>
-    <link rel="manifest" href="./manifest.json" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="https://img.icons8.com/color/48/000000/headphones.png" />
-  </head>
-  <body>
-    <div class="app">
-      <!-- Topo: perfil e notificações -->
-      <div class="top-bar">
-        <div class="profile">
-          <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="Perfil" />
-          <span>Olá, Hivox</span>
-        </div>
-        <div class="notifications">
-          <img src="https://img.icons8.com/ios-filled/30/appointment-reminders.png" alt="Notificações" />
-        </div>
-      </div>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f8f8f5;
+  color: #333;
+}
 
-      <!-- Barra de pesquisa -->
-      <div class="search-bar">
-        <input type="text" placeholder="Pesquisar livros..." />
-      </div>
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
 
-      <!-- Banner tipo TV -->
-      <div class="banner-tv">
-        <img src="https://img.icons8.com/clouds/500/audio-wave--v2.png" alt="Destaques" />
-      </div>
+/* Topo */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
 
-      <!-- Carrossel com livros -->
-      <div class="books-carousel">
-        <div class="book">
-          <img src="https://img.icons8.com/fluency/96/open-book--v2.png" alt="Livro 1" />
-          <p class="tag">Ouvir agora</p>
-        </div>
-        <div class="book">
-          <img src="https://img.icons8.com/fluency/96/book-shelf.png" alt="Livro 2" />
-          <p class="tag">Explorar</p>
-        </div>
-        <div class="book">
-          <img src="https://img.icons8.com/fluency/96/ebook.png" alt="Livro 3" />
-          <p class="tag">Detalhes</p>
-        </div>
-      </div>
+.profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
 
-      <!-- Barra inferior -->
-      <nav class="bottom-nav">
-        <a href="#" class="active">
-          <img src="https://img.icons8.com/ios-filled/50/00b386/home.png" alt="Início" />
-          <span>Início</span>
-        </a>
-        <a href="#">
-          <img src="https://img.icons8.com/ios/50/book.png" alt="Catálogo" />
-          <span>Catálogo</span>
-        </a>
-        <a href="#">
-          <img src="https://img.icons8.com/ios/50/star--v1.png" alt="Favoritos" />
-          <span>Favoritos</span>
-        </a>
-        <a href="#">
-          <img src="https://img.icons8.com/ios/50/user.png" alt="Perfil" />
-          <span>Perfil</span>
-        </a>
-      </nav>
-    </div>
-  </body>
-</html>
+.search-bar {
+  flex: 1;
+  margin: 0 12px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  margin-left: 10px;
+}
+
+.actions img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Banner */
+.banner-tv {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-tv img {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Livros - grelha */
+.books-grid {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 10px;
+}
+
+.book {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90px;
+}
+
+.book img {
+  width: 64px;
+  height: 64px;
+}
+
+.tag {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #00b386;
+}
+
+/* Barra inferior */
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 400px;
+  padding: 8px 0;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.bottom-nav a img {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-nav a.active span {
+  color: #00b386;
+  font-weight: bold;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #1c1c1c;
+  color: #eee;
+}
+
+.dark-mode .top-bar,
+.dark-mode .books-grid,
+.dark-mode .bottom-nav,
+.dark-mode .banner-tv img {
+  background-color: #2c2c2c;
+}
+
+.dark-mode .search-bar input {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+.dark-mode .bottom-nav {
+  background: #333;
+}
