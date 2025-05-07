@@ -11,7 +11,7 @@
 <div class="app">
   <!-- Topo -->
   <div class="top-bar">
-    <div class="profile">
+    <div class="profile" id="profileButton">
       <img src="https://img.icons8.com/color/96/000000/user.png" alt="Perfil">
     </div>
     <div class="search-bar">
@@ -47,12 +47,12 @@
   <nav class="bottom-nav">
     <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Início"><span>Início</span></a>
     <a href="#"><img src="https://img.icons8.com/fluency/48/000000/open-box.png" alt="Catálogo"><span>Catálogo</span></a>
-    <a href="#" id="profileButton"><img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Perfil"><span>Perfil</span></a>
+    <a href="#" id="profileButtonNav"><img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Perfil"><span>Perfil</span></a>
     <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="Configurações"><span>Configurações</span></a>
   </nav>
 </div>
 
-<!-- Modal de Login -->
+<!-- Modal de Login (Fica escondido até clicar) -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -66,14 +66,19 @@
 <script>
   // Modal Login
   const modal = document.getElementById("loginModal");
-  const btn = document.getElementById("profileButton");
-  const span = document.getElementsByClassName("close")[0];
+  const profileButton = document.getElementById("profileButton");
+  const profileButtonNav = document.getElementById("profileButtonNav");
+  const closeBtn = document.getElementsByClassName("close")[0];
 
-  btn.onclick = function() {
+  profileButton.onclick = function() {
     modal.style.display = "block";
   }
 
-  span.onclick = function() {
+  profileButtonNav.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  closeBtn.onclick = function() {
     modal.style.display = "none";
   }
 
