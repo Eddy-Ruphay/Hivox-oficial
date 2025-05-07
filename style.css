@@ -77,16 +77,6 @@ body {
   height: 80px;
 }
 
-.audio-icon {
-  position: absolute;
-  bottom: 32px;
-  right: 0;
-  background: #fff;
-  border-radius: 50%;
-  padding: 4px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
-}
-
 .tag {
   font-size: 12px;
   color: #00b386;
